@@ -27,6 +27,7 @@ testData <- readData("./Data/test")
 combinedData <- rbind(trainData, testData)
 
 #matchcols(combinedData, with=c("subjectID", "activity", "mean()", "std()"), method = "or" )
+colnames <- names(combinedData)
 colsToRetain <- grepl("mean\\(\\)", colnames) | grepl("std\\(\\)", colnames) | grepl("subjectID", colnames) | grepl("activity", colnames) 
 
 #keep only the relevant data
