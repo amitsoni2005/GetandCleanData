@@ -9,7 +9,7 @@ columnNames <- function(dir) {
 #This function would be used to read all the data from a specific folder to data.
 readData <- function(dir){
 	filenames <- list.files(dir, full.names = TRUE, pattern = "*.txt")
-	data <- lapply(filenames,read.table)
+	data <- do.call("cbind", lapply(filenames,read.table))
 	names(data) <- columnNames("./Data")
 	data
 }
